@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'Airplane_Dashboard' title`, () => {
+  it(`should have the 'dashboard' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Airplane_Dashboard');
+    expect(app.title).toEqual('dashboard');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Airplane_Dashboard');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, dashboard');
   });
 });
