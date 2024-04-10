@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
 }
+
 .dashboard-container {
   display: flex;
   position: fixed;
@@ -51,10 +52,10 @@ body {
   cursor: pointer;
   color: white;
   transition: background-color 0.5s;
-  background-image: linear-gradient(to right, #202020, #ee9411);
+  background-image: linear-gradient(to right, #2DD2C2, #68e965);
   background-size: 200% 100%;
   animation: wave 2s linear infinite alternate;
-  filter: brightness(75%);
+  filter: brightness(100%);
   display: none;
   font-family: "Arial Rounded MT Bold", sans-serif;
 }
@@ -65,7 +66,7 @@ body {
 
 .sidebar button:hover {
   background-position: left;
-  filter: brightness(100%);
+  filter: brightness(115%);
   animation: none;
 }
 
@@ -94,6 +95,23 @@ body {
   background-color: #6829C4;
   border-radius: 20px;
   filter: brightness(75%);
+  position: relative;
+}
+
+.grid-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  border-radius: 20px;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  filter:brightness(100%);
 }
 
 .sidebar-container:hover {
@@ -103,6 +121,7 @@ body {
 .sidebar-container:hover ~ .grid-container {
   left: 60%;
 }
+
 .floating-text {
   position: absolute;
   top: 20px;
@@ -112,7 +131,7 @@ body {
   background-color: #202020;
   border-radius: 20px;
   color: #ee9411;
-  font-size: 24px;
+  font-size: 50px;
   font-family: "Arial Rounded MT Bold", sans-serif;
   animation: colorWave 3s linear infinite alternate;
 }
@@ -125,6 +144,7 @@ body {
     color: #6829C4;
   }
 }
+
 @keyframes wave {
   0% {
     background-position: right;

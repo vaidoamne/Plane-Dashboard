@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #ffffff; /* Ensure text is visible on dark background */
+  color: #ffffff;
 }
 
 @keyframes gradientBackground {
@@ -32,20 +32,20 @@
 }
 
 h2 {
-  font-size: 3em; /* Adjust the size as needed */
+  font-size: 3em;
   background: linear-gradient(45deg, #6829C4, #D22D3D, #ee9411, #68e965);
   background-size: 500% 500%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradientBackground 10s ease infinite; /* Adjust the time as needed */
-  -webkit-animation: gradientBackground 10s ease infinite; /* For Safari and older browsers */
+  animation: gradientBackground 10s ease infinite;
+  -webkit-animation: gradientBackground 10s ease infinite;
 }
 
 .buttons-container {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px; /* Added space between the buttons and text boxes */
+  margin-bottom: 20px;
 }
 
 button {
@@ -53,15 +53,15 @@ button {
   font-size: 16px;
 
   border-radius: 20px;
-  border: none; /* Remove default border */
-  color: #ffffff; /* White text */
-  background-image: linear-gradient(45deg, #6829C4, #D22D3D); /* Gradient from purple to salmon */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: transform 0.3s ease; /* Smooth transition for interaction */
+  border: none;
+  color: #ffffff;
+  background-image: linear-gradient(45deg, #6829C4, #D22D3D);
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 button:hover {
-  transform: scale(1.05); /* Slightly enlarge buttons on hover */
+  transform: scale(1.05);
 }
 
 form {
@@ -70,17 +70,17 @@ form {
   gap: 10px;
   width: 100%;
   max-width: 400px;
-  background:#202020; /* Set background color */
+  background:#202020;
 }
 
 input, button[type="submit"] {
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #2DD2C2; /* Turquoise border for inputs and submit button */
-  background-color: #202020; /* Dark gray background */
-  color: #ffffff; /* White text */
+  border: 1px solid #2DD2C2;
+  background-color: #202020;
+  color: #ffffff;
 }
 
 input:focus, button[type="submit"]:focus {
-  outline: 2px solid #ee9411; /* Bright orange outline on focus */
+  outline: 2px solid #ee9411;
 }

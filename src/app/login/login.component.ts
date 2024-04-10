@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {FormsModule} from "@angular/forms";
-import{CommonModule} from "@angular/common";
+import {CommonModule} from "@angular/common";
 import{NgIf} from "@angular/common";
 
 @Component({
@@ -9,7 +9,9 @@ import{NgIf} from "@angular/common";
   templateUrl: './login.component.html',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    NgIf,
+    CommonModule
   ],
   styleUrls: ['./login.component.css']
 })
