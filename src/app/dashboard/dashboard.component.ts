@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,5 +12,16 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  redirectToGraphs() {
+    this.router.navigate(['/graphs']);
+  }
+
+
+
 
 }
