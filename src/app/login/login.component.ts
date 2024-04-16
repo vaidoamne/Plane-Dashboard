@@ -1,48 +1,80 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {FormsModule} from "@angular/forms";
-import {CommonModule} from "@angular/common";
-import{NgIf} from "@angular/common";
+import { HttpClient } from '@angular/common/http';
+import{HttpClientModule} from "@angular/common/http";
+import {NgIf} from "@angular/common";
+import {PaginatorModule} from "primeng/paginator";
+import {PrimeNGConfig} from "primeng/api";
+
+export interface LoginResponse {
+  first_name: string;
+  access_level: string;
+}
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   standalone: true,
-  imports: [
-    FormsModule,
-    NgIf,
-    CommonModule
-  ],
+  imports: [HttpClientModule, NgIf, PaginatorModule],
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  constructor(private router: Router,private primengConfig: PrimeNGConfig, private http: HttpClient) {}
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
-
-  redirectToDashboard() {
-    this.router.navigate(['/dashboard']);
-  }
-
-  title = 'AngularDashboard';
+  loginData = { email: '', password: '' };
+  signupData = { email: '', phone_number: '', first_name: '', last_name: '', password: '',level:''};
   currentForm: 'login' | 'signup' | null = null;
-
-  loginData = { emailOrPhone: '', password: '' };
-  signupData = { email: '', phone: '', firstName: '', lastName: '', password: '', confirmPassword: '' };
 
   showForm(form: 'login' | 'signup') {
     this.currentForm = form;
   }
 
   login() {
-    // Implement your login logic here
-    console.log('Login', this.loginData);
+    if (!this.loginData.email || !this.loginData.password) {
+      alert('Email and password are required.');
+      return;
+    }
+    this.http.post<any>('http://127.0.0.1:8000/login', {
+      email: this.loginData.email,
+      password: this.loginData.password
+    }).subscribe({
+      next: (response: LoginResponse) => {
+        console.log('Login response:', response.first_name);
+        if (response.first_name && response.access_level) {
+          localStorage.setItem('currentUser', JSON.stringify(response));
+          this.router.navigate(['/dashboard']);
+        } else {
+          alert('Login failed. Invalid email or password.');
+        }
+      },
+      error: error => {
+        console.error('Login error:', error);
+        alert('Login failed. Please try again later.');
+      }
+    });
   }
 
   signup() {
-    // Implement your signup logic here
-    console.log('Signup', this.signupData);
+
+    this.http.post<any>('http://127.0.0.1:8000/signup', this.signupData)
+      .subscribe({
+        next: response => {
+          console.log('Signup response:', response);
+          if (response === 0) {
+            alert('Signup successful.');
+          } else {
+            alert('Signup failed. Please check your inputs.');
+          }
+        },
+        error: error => {
+          console.error('Signup error:', error);
+          alert('Signup failed. Please try again later.');
+        }
+      });
+  }
+
+
+  redirectToDashboard() {
+    this.router.navigate(['/dashboard']);
   }
 }

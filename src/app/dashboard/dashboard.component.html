@@ -1,4 +1,5 @@
 <div class="dashboard-container">
+  <app-header></app-header>
   <div class="sidebar-container">
     <div class="sidebar">
       <ul>
@@ -9,12 +10,11 @@
     </div>
   </div>
   <div class="content">
-    <div class="floating-text">Airplane Dashboard Nokia</div>
     <div class="grid-container">
-      <button class="grid-item"></button>
-      <button class="grid-item"></button>
-      <button class="grid-item"></button>
-      <button class="grid-item"></button>
+      <button class="grid-item" (click)="redirectToGraphs()"></button>
+      <button class="grid-item" (click)="redirectToMaps()"></button>
+      <button class="grid-item" (click)="redirectToTasks()"></button>
+      <button class="grid-item" (click)="redirectToSettings()"></button>
       <button class="grid-item"></button>
       <button class="grid-item"></button>
     </div>

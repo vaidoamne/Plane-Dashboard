@@ -1,8 +1,15 @@
+<app-header></app-header>
 <div class="graphs-container">
-  <div class="p-grid p-justify-center">
-    <div class="p-col-10">
-      <p-chart type="pie" [data]="this.data" [options]="this.options"></p-chart>
-    </div>
+  <div class="chart-container">
+    <p-chart type="pie" [data]="data" [options]="options" width="350px"></p-chart>
+    <div class="chart-text">PLACEHOLDER</div>
+  </div>
+  <div class="chart-container">
+    <p-chart type="line" [data]="lineChartData" [options]="lineChartOptions" width="350px"></p-chart>
+    <div class="chart-text">PLACEHOLDER</div>
+  </div>
+  <div class="chart-container">
+    <p-chart type="bar" [data]="barChartData" [options]="barChartOptions" width="350px"></p-chart>
+    <div class="chart-text">PLACEHOLDER</div>
   </div>
 </div>
-

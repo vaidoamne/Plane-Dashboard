@@ -23,7 +23,7 @@ body {
 
 .sidebar {
   position: absolute;
-  top: 0;
+  top: 80px;
   left: 0;
   height: 100%;
   width: 200px;
@@ -114,35 +114,68 @@ body {
   filter:brightness(100%);
 }
 
+.grid-item:nth-child(1) {
+  background-image:url('/assets/graph.png'); /* Default background image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
+
+.grid-item:nth-child(1):hover {
+  background-image: url('/assets/hovered_graphs.png'); /* Hover effect */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
+
+.grid-item:nth-child(2) {
+  background-image:url('/assets/planemap.png'); /* Default background image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
+
+.grid-item:nth-child(2):hover {
+  background-image: url('/assets/hovered_planemap.png'); /* Hover effect */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
+
+.grid-item:nth-child(3) {
+  background-image:url('/assets/task.png'); /* Default background image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
+
+.grid-item:nth-child(3):hover {
+  background-image: url('/assets/hovered_task.png'); /* Hover effect */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
+
+
+.grid-item:nth-child(4) {
+  background-image:url('/assets/hovered_settings.png'); /* Default background image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
+
+.grid-item:nth-child(4):hover {
+  background-image: url('/assets/settings.png'); /* Hover effect */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
 .sidebar-container:hover {
   width: 250px;
 }
 
 .sidebar-container:hover ~ .grid-container {
   left: 60%;
-}
-
-.floating-text {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px;
-  background-color: #202020;
-  border-radius: 20px;
-  color: #ee9411;
-  font-size: 50px;
-  font-family: "Arial Rounded MT Bold", sans-serif;
-  animation: colorWave 3s linear infinite alternate;
-}
-
-@keyframes colorWave {
-  0% {
-    color: #ee9411;
-  }
-  100% {
-    color: #6829C4;
-  }
 }
 
 @keyframes wave {
