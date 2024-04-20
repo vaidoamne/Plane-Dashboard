@@ -8,16 +8,33 @@ import { DOCUMENT } from '@angular/common';
 import {HeaderComponent} from "../header/header.component";
 
 interface Flight {
-  id:string;
-  flight_number: number;
-  timestamp : string;
+  id: string;
+  flight_number: string;
+  timestamp: string;
   destination: string;
-  altitude:number;
-  airspeed : number;
-  temperature :number;
-  pressure:number;
-  passengers:number;
+  altitude: number;
+  airspeed: number;
+  temperature: number;
+  pressure: number;
+  passengers: number;
   capacity: number;
+  company_name: string;
+  plane_name: string;
+  plane_model: string;
+  plane_age: number;
+  current_occupied_spaces: number;
+  speed: number;
+  startX: number;
+  startY: number;
+  currentX: number;
+  currentY: number;
+  endX: number;
+  endY: number;
+  starting_airport_name: string;
+  end_airport_name: string;
+  departure_time: string;
+  estimated_arrival_time: string;
+  arrival_time: string;
 }
 
 @Component({

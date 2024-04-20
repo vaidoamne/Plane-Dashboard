@@ -1,4 +1,4 @@
-.tasks-container {
+.tasks-container-main {
   display: flex;
   position: fixed;
   top: 80px;
@@ -7,4 +7,101 @@
   height: 100%;
   background-color: #202020;
   overflow: hidden;
+}
+
+.container {
+  padding-top:2.5%;
+  display: flex;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  height:25%;
+
+  max-width: 800px;
+}
+
+.grid-item {
+  width: calc((100% - 80px) / 3); /* Adjusted width for more spacing */
+  background: #ffffff;
+  min-width: 200px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex; /* Set display to flex */
+  flex-direction: column; /* Align items vertically */
+}
+
+.title {
+  font-size: 20px;
+  top:0;
+  color: white;
+  background-color: #202020;
+  padding: 8px 12px;
+  border: 2px solid #ffffff;
+  border-radius: 25px; /* Increase border-radius for more rounded corners */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.task {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.create-task-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-task-btn:hover {
+  background-color: #45a049;
+}
+
+/* Background colors based on category */
+.not-completed {
+  background-color: red;
+}
+
+.working-on-it {
+  background-color: yellow;
+}
+
+.completed .task{
+  background-color: green;
+}
+
+/* Adjustments for draggable tasks */
+.task[draggable="true"] {
+  cursor: grab;
+}
+
+.task[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+/* Adjustments for dragged over grid items */
+.grid-item:hover {
+  border-color: #4CAF50;
 }

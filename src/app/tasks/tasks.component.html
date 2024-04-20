@@ -1,6 +1,20 @@
 <app-header></app-header>
-<div class="tasks-container">
-
-
+<div class="tasks-container-main">
+  <div class="container">
+    <div class="grid">
+      <div class="grid-item notCompleted" (drop)="onTaskDrop($event, 'notCompleted')" (dragover)="allowDrop($event)">
+        <h2 class="title">Not Completed</h2>
+        <div class="task not-completed" *ngFor="let task of taskStatus.notCompleted" draggable="true" (dragstart)="onDragStart($event, task)" contenteditable="true">{{ task }}</div>
+      </div>
+      <div class="grid-item middle workingOnIt" (drop)="onTaskDrop($event, 'workingOnIt')" (dragover)="allowDrop($event)">
+        <h2 class="title">Working On It</h2>
+        <div class="task working-on-it" *ngFor="let task of taskStatus.workingOnIt" draggable="true" (dragstart)="onDragStart($event, task)" contenteditable="true">{{ task }}</div>
+      </div>
+      <div class="grid-item completed" (drop)="onTaskDrop($event, 'completed')" (dragover)="allowDrop($event)">
+        <h2 class="title">Completed</h2>
+        <div class="task completed" *ngFor="let task of taskStatus.completed" draggable="true" (dragstart)="onDragStart($event, task)" contenteditable="true">{{ task }}</div>
+      </div>
+    </div>
+    <button class="create-task-btn" (click)="createTask()">Create Task</button>
+  </div>
 </div>
-
