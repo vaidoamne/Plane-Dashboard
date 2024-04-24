@@ -1,3 +1,5 @@
+/* tasks.component.css */
+
 .tasks-container-main {
   display: flex;
   position: fixed;
@@ -5,103 +7,143 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #202020;
+  background-color: #202020; /* Black/Gray */
   overflow: hidden;
 }
 
-.container {
-  padding-top:2.5%;
+/* Task Square Styling */
+.task {
+  background-color: transparent;
+  color: white; /* Text color */
+  border: 2px solid transparent; /* Border color */
+  margin-bottom: 10px;
+  padding: 8px; /* Reduced padding */
+  width: 200px; /* Fixed width for the task squares */
+  height: 200px; /* Fixed height for the task squares */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   display: flex;
-  top: 10px;
-  width: 100%;
-  height: 100%;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  font-size: 14px; /* Smaller text size */
+}
+.title{
+  color : #ffffff;
+}
+.task-container {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Border color based on urgency */
+.low {
+  border-color: #68e965; /* PyCharm Green */
+}
+
+.medium {
+  border-color: #ee9411; /* Bright Orange/Mango */
+}
+
+.high {
+  border-color: #D22D3D; /* Salmon (Pink/Red) */
+}
+.task-container{
+  background-color:#ffffff;
+}
+.task-container .task-description,
+.task-container .task-urgency,
+.task-container .task-creator,
+.task-container .task-assignedTo,
+.task-container .task-dueDate {
+  color: black;
+}
+
+.task-container .task-urgency {
+}
+
+/* Create Task Panel Styling */
+.create-task-panel {
+  flex: 0 0 300px; /* Set width of panel */
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-right: 20px; /* Add margin to separate from tasks grid */
+}
+
+.create-task-panel h2 {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.tasks-grid {
+  flex: 1; /* Occupy remaining space */
+  display: flex;
 }
 
 .grid {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-
-  height:25%;
-
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .grid-item {
-  width: calc((100% - 80px) / 3); /* Adjusted width for more spacing */
-  background: #ffffff;
-  min-width: 200px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+  border-radius: 5px;
   padding: 10px;
-  margin-bottom: 20px;
-  display: flex; /* Set display to flex */
-  flex-direction: column; /* Align items vertically */
+  background-color: #6829C4 ;
 }
 
 .title {
-  font-size: 20px;
-  top:0;
-  color: white;
-  background-color: #202020;
-  padding: 8px 12px;
-  border: 2px solid #ffffff;
-  border-radius: 25px; /* Increase border-radius for more rounded corners */
-  margin-bottom: 10px;
-  text-align: center;
+  margin-top: 0;
 }
 
 .task {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white; /* Set text color to white */
+  font-size: 12px; /* Smaller text size */
 }
 
-.create-task-btn {
-  background-color: #4CAF50;
+.task.low {
+  background-color: #68e965; /* PyCharm Green */
+}
+
+.task.medium {
+  background-color: #ee9411; /* Bright Orange/Mango */
+}
+
+.task.high {
+  background-color: #D22D3D; /* Salmon (Pink/Red) */
+}
+
+.btn-primary {
+  width: 120px; /* Fixed width for button */
+  height: 40px; /* Fixed height for button */
+  padding: 10px;
+  background-color: #6829C4; /* Purple */
   color: white;
   border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 20px; /* Rounded corners */
   cursor: pointer;
+  font-size: 14px; /* Font size */
 }
 
 .create-task-btn:hover {
-  background-color: #45a049;
-}
-
-/* Background colors based on category */
-.not-completed {
-  background-color: red;
-}
-
-.working-on-it {
-  background-color: yellow;
-}
-
-.completed .task{
-  background-color: green;
-}
-
-/* Adjustments for draggable tasks */
-.task[draggable="true"] {
-  cursor: grab;
-}
-
-.task[draggable="true"]:active {
-  cursor: grabbing;
-}
-
-/* Adjustments for dragged over grid items */
-.grid-item:hover {
-  border-color: #4CAF50;
+  background-color: #2DD2C2; /* Turquoise (Hover color) */
 }

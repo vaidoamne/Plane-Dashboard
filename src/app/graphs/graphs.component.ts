@@ -6,36 +6,8 @@ import { ChartModule } from "primeng/chart";
 import { FlightService } from "../flight.service";
 import { DOCUMENT } from '@angular/common';
 import {HeaderComponent} from "../header/header.component";
-
-interface Flight {
-  id: string;
-  flight_number: string;
-  timestamp: string;
-  destination: string;
-  altitude: number;
-  airspeed: number;
-  temperature: number;
-  pressure: number;
-  passengers: number;
-  capacity: number;
-  company_name: string;
-  plane_name: string;
-  plane_model: string;
-  plane_age: number;
-  current_occupied_spaces: number;
-  speed: number;
-  startX: number;
-  startY: number;
-  currentX: number;
-  currentY: number;
-  endX: number;
-  endY: number;
-  starting_airport_name: string;
-  end_airport_name: string;
-  departure_time: string;
-  estimated_arrival_time: string;
-  arrival_time: string;
-}
+import {Flight} from './Interfaces.interface';
+import{Airports} from "./Interfaces.interface";
 
 @Component({
   selector: 'app-graphs',
@@ -47,6 +19,7 @@ interface Flight {
 export class GraphsComponent implements OnInit {
   multi: any[] = [];
   flights: Flight[] = [];
+  airports : Airports[] = [];
   data: any;
   capacity: any[] = [];
   names: any[] = [];
@@ -78,27 +51,47 @@ export class GraphsComponent implements OnInit {
         console.log('Error fetching flight data:', error);
       }
     });
+    this.http.get<Airports[]>('http://127.0.0.1:8000/get_all_airports').subscribe({
+      next: (data: Airports[]) => {
+        this.multi = data.map(airport => {
+          this.airports.push(airport)
+        });
+      },
+      error: (error) => {
+        console.log('Error fetching flight data:', error);
+      }
+    });
   }
 
   generateChartData(): void {
-    this.capacity = this.flights.map(obj => obj.capacity);
-    this.names = this.flights.map(obj => obj.flight_number);
-    console.log("2")
-    console.log("3")
-    console.log(this.capacity)
+    let companyCounts: {[key: string]: number} = {}; // Type annotation for companyCounts
+
+    this.flights.forEach((flight: { company_name: string }) => { // Type annotation for flight and company_name
+      if (companyCounts.hasOwnProperty(flight.company_name)) {
+        companyCounts[flight.company_name]++;
+      } else {
+        companyCounts[flight.company_name] = 1;
+      }
+    });
+
+    let totalFlights: number = this.flights.length; // Type annotation for totalFlights
+
+    let companyLabels: string[] = Object.keys(companyCounts); // Type annotation for companyLabels
+    let companyData: number[] = companyLabels.map(company => {
+      return (companyCounts[company] / totalFlights) * 100;
+    });
+
     this.data = {
-      labels: [...this.names],
-      datasets: [
-        {
-          label: 'Flight Capacity',
-          data: [...this.capacity],
-          backgroundColor: ['#6829C4', '#D22D3D', '#2DD2C2', '#ee9411', '#68e965'],
-          fill: true,
-          borderColor: '#FFA726',
-          tension: .4,
-        }
-      ]
+      labels: companyLabels,
+      datasets: [{
+        label: 'Company Distribution',
+        data: companyData,
+        backgroundColor: ['#6829C4', '#D22D3D', '#2DD2C2', '#ee9411', '#68e965'],
+        borderColor: '#FFA726',
+        borderWidth: 1
+      }]
     };
+
 
     this.options = {
       plugins: {
@@ -108,7 +101,7 @@ export class GraphsComponent implements OnInit {
         },
         title:{
           display:true,
-          text:"Flight capacity by plane",
+          text:"",
           color:"white"
         },
         legend: {
@@ -122,15 +115,30 @@ export class GraphsComponent implements OnInit {
   }
 
   generateLineChartData(): void {
-    const destinations = this.flights.map(obj => obj.destination);
-    const passengers = this.flights.map(obj => obj.passengers);
+    const flightCounts: {[date: string]: number} = {};
 
+    for (const flight of this.flights) {
+      const date = flight.timestamp.split('T')[0];
+      if (flightCounts[date]) {
+        flightCounts[date]++;
+      } else {
+        flightCounts[date] = 1;
+      }
+    }
+
+    const dates = Object.keys(flightCounts);
+    const counts = Object.values(flightCounts);
+
+    console.log("Flight Counts by Date:");
+    dates.forEach((date, index) => {
+      console.log(`${date}: ${counts[index]} flights`);
+    });
     this.lineChartData = {
-      labels: [...destinations],
+      labels: [...dates],
       datasets: [
         {
-          label: 'Number of Passengers',
-          data: [...passengers],
+          label: 'Number of Flights',
+          data: [...counts],
           fill: false,
           borderColor: '#6829C4',
           tension: .4,
@@ -148,7 +156,7 @@ export class GraphsComponent implements OnInit {
         },
         title:{
           display:true,
-          text:"Number of Passengers by Destination",
+          text:"Number of flights by date",
           color:"white"
         },
         legend: {
@@ -162,21 +170,20 @@ export class GraphsComponent implements OnInit {
   }
 
   generateBarChartData(): void {
-    const altitudes = this.flights.map(obj => obj.altitude);
-    const speeds = this.flights.map(obj => obj.airspeed);
+    const arrivalDelays = this.flights.map(flight => {
+      const estimatedArrival = new Date(flight.estimated_arrival_time);
+      const actualArrival = new Date(flight.arrival_time);
+      const delayInSeconds = (estimatedArrival.getTime() - actualArrival.getTime()) / 1000; // Convert milliseconds to seconds
+      return delayInSeconds / 60; // Convert seconds to minutes
+    });
 
     this.barChartData = {
-      labels: [...this.names],
+      labels: this.flights.map(flight => flight.company_name), // Use company names as labels
       datasets: [
         {
-          label: 'Altitude',
-          data: [...altitudes],
+          label: 'Arrival Delay (minutes)',
+          data: arrivalDelays,
           backgroundColor: '#D22D3D',
-        },
-        {
-          label: 'Speed',
-          data: [...speeds],
-          backgroundColor: '#2DD2C2',
         }
       ]
     };
@@ -189,7 +196,7 @@ export class GraphsComponent implements OnInit {
         },
         title:{
           display:true,
-          text:"Altitude and Speed",
+          text:"Delay by airline",
           color:"white"
         },
         legend: {
