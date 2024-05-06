@@ -6,14 +6,14 @@ import { ChartModule } from "primeng/chart";
 import { FlightService } from "../flight.service";
 import { DOCUMENT } from '@angular/common';
 import {HeaderComponent} from "../header/header.component";
-import {Flight} from './Interfaces.interface';
-import{Airports} from "./Interfaces.interface";
+import {Flight} from '../Interfaces.interface';
+import{Airports} from "../Interfaces.interface";
 
 @Component({
   selector: 'app-graphs',
   templateUrl: './graphs.component.html',
-  standalone: true,
   imports: [HttpClientModule, ChartModule, HeaderComponent],
+  standalone: true,
   styleUrls: ['./graphs.component.css']
 })
 export class GraphsComponent implements OnInit {
@@ -173,7 +173,7 @@ export class GraphsComponent implements OnInit {
     const arrivalDelays = this.flights.map(flight => {
       const estimatedArrival = new Date(flight.estimated_arrival_time);
       const actualArrival = new Date(flight.arrival_time);
-      const delayInSeconds = (estimatedArrival.getTime() - actualArrival.getTime()) / 1000; // Convert milliseconds to seconds
+      const delayInSeconds = (estimatedArrival.getTime() - actualArrival.getTime()) / 100000; // Convert milliseconds to seconds
       return delayInSeconds / 60; // Convert seconds to minutes
     });
 

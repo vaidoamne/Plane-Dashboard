@@ -1,80 +1,3 @@
-body {
-  font-family: Arial, sans-serif;
-}
-
-.dashboard-container {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #202020;
-  overflow: hidden;
-}
-
-.sidebar-container {
-  position: relative;
-  height: 100%;
-  width: 50px;
-  overflow: hidden;
-  transition: width 0.5s;
-}
-
-.sidebar {
-  position: absolute;
-  top: 80px;
-  left: 0;
-  height: 100%;
-  width: 200px;
-  background-color: #6829C4;
-  color: #fff;
-  padding: 20px;
-  filter: brightness(75%);
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin-bottom: 10px;
-}
-
-.sidebar button {
-  width: 100%;
-  padding: 25px;
-  margin-bottom: 50px;
-  background-color: #202020;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  color: white;
-  transition: background-color 0.5s;
-  background-image: linear-gradient(to right, #2DD2C2, #68e965);
-  background-size: 200% 100%;
-  animation: wave 2s linear infinite alternate;
-  filter: brightness(100%);
-  display: none;
-  font-family: "Arial Rounded MT Bold", sans-serif;
-}
-
-.sidebar-container:hover .sidebar button {
-  display: block;
-}
-
-.sidebar button:hover {
-  background-position: left;
-  filter: brightness(115%);
-  animation: none;
-}
-
-.content {
-  flex: 1;
-  padding: 20px;
-}
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -97,7 +20,6 @@ body {
   filter: brightness(75%);
   position: relative;
 }
-
 .grid-item::before {
   content: '';
   position: absolute;
@@ -108,47 +30,40 @@ body {
   background-size: cover;
   border-radius: 20px;
 }
-
 .grid-item:hover {
   transform: scale(1.05);
   filter:brightness(100%);
 }
-
 .grid-item:nth-child(1) {
   background-image:url('/assets/graph.png'); /* Default background image */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; /* Center the background image */
 }
-
 .grid-item:nth-child(1):hover {
   background-image: url('/assets/hovered_graphs.png'); /* Hover effect */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; /* Center the background image */
 }
-
 .grid-item:nth-child(2) {
   background-image:url('/assets/planemap.png'); /* Default background image */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; /* Center the background image */
 }
-
 .grid-item:nth-child(2):hover {
   background-image: url('/assets/hovered_planemap.png'); /* Hover effect */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; /* Center the background image */
 }
-
 .grid-item:nth-child(3) {
   background-image:url('/assets/task.png'); /* Default background image */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; /* Center the background image */
 }
-
 .grid-item:nth-child(3):hover {
   background-image: url('/assets/hovered_task.png'); /* Hover effect */
   background-size: contain;
@@ -156,14 +71,12 @@ body {
   background-position: center; /* Center the background image */
 }
 
-
 .grid-item:nth-child(4) {
   background-image:url('/assets/hovered_settings.png'); /* Default background image */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; /* Center the background image */
 }
-
 .grid-item:nth-child(4):hover {
   background-image: url('/assets/settings.png'); /* Hover effect */
   background-size: contain;
@@ -173,7 +86,6 @@ body {
 .sidebar-container:hover {
   width: 250px;
 }
-
 .sidebar-container:hover ~ .grid-container {
   left: 60%;
 }

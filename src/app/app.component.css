@@ -1,0 +1,17 @@
+/* app.component.css */
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: #fff;
+}
+
+.light-theme {
+  background-color: #fff;
+  color: #121212;
+}

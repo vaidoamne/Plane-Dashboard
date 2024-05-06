@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HeaderComponent} from "./header/header.component";
+import {ThemePalette} from "@angular/material/core";
+import {MatSlideToggleChange} from "@angular/material/slide-toggle";
 
 @Component({
   selector: 'app-root',
@@ -10,5 +12,10 @@ import {HeaderComponent} from "./header/header.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Airplane_Dashboard';
+  theme: ThemePalette = 'primary'; // Default theme
+
+  toggleTheme(event: MatSlideToggleChange): void {
+    this.theme = event.checked ? 'accent' : 'primary';
+  }
+    title = 'Airplane_Dashboard';
 }

@@ -14,8 +14,8 @@ export interface LoginResponse {
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  standalone: true,
   imports: [HttpClientModule, NgIf, PaginatorModule],
+  standalone: true,
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
@@ -29,19 +29,23 @@ export class LoginComponent {
     this.currentForm = form;
   }
 
+
   login() {
     if (!this.loginData.email || !this.loginData.password) {
       alert('Email and password are required.');
       return;
     }
+
     this.http.post<any>('http://127.0.0.1:8000/login', {
       email: this.loginData.email,
       password: this.loginData.password
     }).subscribe({
-      next: (response: LoginResponse) => {
-        console.log('Login response:', response.first_name);
+      next: (response: any) => {
+        console.log('Login response:', response);
         if (response.first_name && response.access_level) {
-          localStorage.setItem('currentUser', JSON.stringify(response));
+          localStorage.setItem('currentUser', response.first_name);
+
+          localStorage.setItem('AccessLevel', response.access_level);
           this.router.navigate(['/dashboard']);
         } else {
           alert('Login failed. Invalid email or password.');
@@ -53,7 +57,6 @@ export class LoginComponent {
       }
     });
   }
-
   signup() {
 
     this.http.post<any>('http://127.0.0.1:8000/signup', this.signupData)

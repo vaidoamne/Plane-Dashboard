@@ -1,29 +1,26 @@
-.graphs-container {
-  display: flex;
-  position: fixed;
-  top: 80px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #202020;
-  overflow: hidden;
-}
-
-.graphs-container .chart-container {
-  flex: 1; /* Each chart container takes equal space */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.chart-container {
+  flex: 1;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start; /* Align items at the top */
   justify-content: center;
-  height :30%;
+  height: 30%;
+  width: 30%;
+  margin-top: 80px; /* Margin from the top */
+  background-color: #202020;
   text-align: center;
-  color:#ffffff;
+  color: #ffffff;
   padding: 20px;
-  border: 1px solid #ccc; /* Optional: Add border for visualization */
+  border: 2px solid #ccc;
 }
 
-.graphs-container .chart-title {
+.chart-title {
   font-size: 18px;
-  margin-bottom: 10px;
-  color: #ffffff; /* Optional: Customize text color */
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+/* Add this to prevent the container from wrapping */
+.mat-grid-list {
+  flex-wrap: nowrap;
 }

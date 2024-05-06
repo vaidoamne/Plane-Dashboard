@@ -1,1 +1,25 @@
-<div class="map-container" id="map" ></div>
+  <div class="map-container" id="map" ></div>
+
+  <button (click)="toggleContainer()" class="toggle-button">Toggle Container</button>
+  <div class="map-menu-container" [class.show]="containerVisible">
+    <div class="grid-item">
+      <h2>Visibility options</h2>
+
+      <div class="button-container">
+        <mat-slide-toggle (change)="ToggleViewFlights($event)">View Flights</mat-slide-toggle>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <h2>Option2</h2>
+      <div class="button-container">
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <h2>Option3</h2>
+      <div class="button-container">
+      </div>
+    </div>
+  </div>
+

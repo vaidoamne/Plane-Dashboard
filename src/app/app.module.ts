@@ -9,6 +9,8 @@ import {NgIf} from "@angular/common";
 import {AuthModule} from '@auth0/auth0-angular';
 import {HttpClientModule} from "@angular/common/http";
 import {GraphsComponent} from "./graphs/graphs.component";
+import {HeaderComponent} from "./header/header.component";
+import {PickAirplaneComponent} from "./pick-airport/pick-airplane.component";
 
 @NgModule({
   declarations: [],
@@ -16,11 +18,13 @@ import {GraphsComponent} from "./graphs/graphs.component";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    PickAirplaneComponent,
     AppComponent,
+    HeaderComponent,
     LoginComponent,
-    FormsModule,
     GraphsComponent,
     DashboardComponent,
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     AuthModule.forRoot({

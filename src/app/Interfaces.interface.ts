@@ -47,3 +47,14 @@ export interface  Airports{
   busyness: string;
   airplane_capacity: number;
 }
+
+export interface UserProfile {
+  email: string;
+  phone_number: string;
+  first_name: string;
+  last_name: string;
+  level: string;
+  selected:boolean;
+}
+
+

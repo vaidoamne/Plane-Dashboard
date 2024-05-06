@@ -1,4 +1,10 @@
 <div class="header">
   <h1>Airplane Dashboard --Nokia</h1>
+  <mat-slide-toggle [aria-label]="alertsEnabled ? 'Disable alerts' : 'Enable alerts'"
+                    [(ngModel)]="alertsEnabled"
+                    (change)="onToggleChange()">
+  </mat-slide-toggle>
+
+
   <div class="user-info">{{ username }}</div>
 </div>

@@ -1,18 +1,3 @@
-.container {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #202020;
-  overflow: hidden;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-}
-
 @keyframes gradientBackground {
   0% {
     background-position: 0% 50%;
