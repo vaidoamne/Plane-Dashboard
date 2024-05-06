@@ -1,0 +1,43 @@
+.tile-container {
+  position:relative;
+  top:10dvh;
+  left:10dvw;
+  height:70dvh;
+  width:80%;
+}
+
+.tile-content {
+  top:5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mat-grid-tile:hover {
+  background-color: #ee9411;
+}
+
+mat-grid-tile {
+  background-color:#6829C4;
+  top:5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+img {
+  width: 100%;
+  max-width: 150px;
+  left:10px;
+  top :10px;
+  height: auto;
+  border-radius: 10px; /* Add rounded edges to image */
+}
