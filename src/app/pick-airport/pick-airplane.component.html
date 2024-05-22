@@ -2,10 +2,10 @@
 
 <div class="tile-container">
   <mat-grid-list cols="1" rowHeight="200px" gutterSize="20px">
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="airports.length > 0" (click)="selectAirport(airports[1].airport_name)">
       <div class="tile-content">
-        <img [src]="getAirportImage(airports[0].airport_name)" alt="Airport Image">
-        <span>{{ airports[0].airport_name }}</span>
+        <img [src]="getAirportImage(airports[1].airport_name)" alt="Airport Image">
+        <span>{{ airports[1].airport_name }}</span>
       </div>
     </mat-grid-tile>
   </mat-grid-list>

@@ -1,26 +1,38 @@
-.chart-container {
-  flex: 1;
-  display: inline-flex;
-  flex-direction: row;
-  align-items: flex-start; /* Align items at the top */
-  justify-content: center;
-  height: 30%;
-  width: 30%;
-  margin-top: 80px; /* Margin from the top */
-  background-color: #202020;
-  text-align: center;
-  color: #ffffff;
+.content {
   padding: 20px;
-  border: 2px solid #ccc;
+  color: white;
 }
 
-.chart-title {
-  font-size: 18px;
-  margin-right: 10px;
-  color: #ffffff;
+.flights-container {
+  margin-bottom: 20px;
+  position: absolute;
+  top: 80px;
+  left: 15%;
 }
 
-/* Add this to prevent the container from wrapping */
-.mat-grid-list {
-  flex-wrap: nowrap;
+.flights-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2c2c2c; /* Changed background color to a dark color for contrast */
+}
+
+.flights-table th, .flights-table td {
+  border: 1px solid #444;
+  padding: 10px;
+  text-align: left;
+  color: #ffffff; /* Set text color to white */
+}
+
+.flights-table th {
+  background-color: #444; /* Dark background for header */
+}
+
+.chart-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.chart-text {
+  margin-top: 10px;
+  color: white;
 }
