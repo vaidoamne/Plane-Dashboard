@@ -7,7 +7,7 @@
       <button class="grid-item" (click)="redirectToMaps()"></button>
       <button class="grid-item" (click)="redirectToTasks()"></button>
       <button class="grid-item" (click)="redirectToSettings()" *ngIf="isAdmin()"></button>
-      <button class="grid-item" *ngIf="isAdmin()"></button>
+      <button class="grid-item" *ngIf="isAdmin()" (click)="redirectToFindFlight()"></button>
       <button class="grid-item" *ngIf="isAdmin()"></button>
     </div>
   </div>

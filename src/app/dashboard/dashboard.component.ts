@@ -40,6 +40,9 @@ export class DashboardComponent {
   redirectToSettings() {
     this.router.navigate(['/settings']);
   }
+  redirectToFindFlight() {
+    this.router.navigate(['/find-flight']);
+  }
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }

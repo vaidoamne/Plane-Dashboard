@@ -6,6 +6,7 @@ import {MapComponent} from "./map/map.component";
 import {TasksComponent} from "./tasks/tasks.component";
 import {SettingsComponent} from "./settings/settings.component";
 import {PickAirplaneComponent} from "./pick-airport/pick-airplane.component";
+import {FindMyFlightComponent} from "./find-my-flight/find-my-flight.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'tasks', component: TasksComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: 'pick-airplane', component: PickAirplaneComponent }
+  { path: 'pick-airplane', component: PickAirplaneComponent },
+  { path: 'find-flight', component: FindMyFlightComponent }
 
 ];

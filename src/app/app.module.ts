@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {GraphsComponent} from "./graphs/graphs.component";
 import {HeaderComponent} from "./header/header.component";
 import {PickAirplaneComponent} from "./pick-airport/pick-airplane.component";
+import {FindMyFlightComponent} from "./find-my-flight/find-my-flight.component";
 
 @NgModule({
   declarations: [],
@@ -19,6 +20,7 @@ import {PickAirplaneComponent} from "./pick-airport/pick-airplane.component";
     AppRoutingModule,
     FormsModule,
     PickAirplaneComponent,
+    FindMyFlightComponent,
     AppComponent,
     HeaderComponent,
     LoginComponent,

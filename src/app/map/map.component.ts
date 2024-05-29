@@ -36,8 +36,6 @@ export class MapComponent {
   airportX: number = 0;
   airportY: number = 0;
   selectedAirportName : string = "";
-  lat: number = 30.2672;
-  lng: number = -97.7431;
   toggled : boolean = false;
   containerVisible:boolean = false;
   constructor(
