@@ -83,6 +83,19 @@
   background-repeat: no-repeat;
   background-position: center; /* Center the background image */
 }
+
+.grid-item:nth-child(5) {
+  background-image:url('/assets/search1.png'); /* Default background image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
+.grid-item:nth-child(5):hover {
+  background-image: url('/assets/search2.png'); /* Hover effect */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+}
 .sidebar-container:hover {
   width: 250px;
 }

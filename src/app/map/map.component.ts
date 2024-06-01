@@ -219,6 +219,7 @@ export class MapComponent {
             const city = feature.properties['city'];
             const busyness = feature.properties['busyness'];
             const age = feature.properties['airport_age'];
+            //add info when clicked other airport
             if(airport.airport_name != selectedAirport.airport_name) {
               if (this.map instanceof mapboxgl.Map) {
                 const popupContent = `
@@ -239,7 +240,7 @@ export class MapComponent {
                   .addTo(this.map);
               }
             }
-            else{
+            else{//domestic airport
               if (this.map instanceof mapboxgl.Map) {
                 const popupContent = `
                 <h3>${airportName}</h3>
